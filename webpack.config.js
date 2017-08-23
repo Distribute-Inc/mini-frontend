@@ -44,7 +44,7 @@ module.exports = (() => {
     module: {
       rules: [
         {
-          test: /\.ts$/,
+          test: /\.(ts|tsx)$/,
           loader: [`awesome-typescript-loader`, `angular1-template-loader`]
         },
         {
@@ -55,7 +55,7 @@ module.exports = (() => {
           loader: `ngtemplate-loader?relativeTo=${__dirname}!html-loader`
         },
         {
-          test: /\.js$/,
+          test: /\.(js|jsx)$/,
           loader: `babel-loader`,
           exclude: /node_modules/
         },

@@ -1,25 +1,27 @@
 import * as angular from 'angular'
+import {MainHeader} from './react-is-cool'
+// import {react2angular} from 'react2angular'
 
 interface MainHeaderScope extends angular.IScope {
-    headerText: string;
+  headerText?: any
 }
 
-
-angular.module('miniscule.components.main-header', [])
-.directive('mainHeader', () => {
-  return {
-    controller: 'mainHeaderController',
+angular.module(`miniscule.components.main-header`, [])
+.directive(`mainHeader`, () => (
+  {
+    controller: `mainHeaderController`,
     templateUrl: `/source/components/main-header/main-header.html`,
     restrict: `E`,
     scope: {}
   }
-})
+))
 .controller(
-  'mainHeaderController',
+  `mainHeaderController`,
   [
     `$scope`,
     ($scope: MainHeaderScope) => {
-        $scope.headerText = 'main header text'
+      $scope.headerText = 'main header text'
     }
   ]
+  // react2angular(MainHeader, `headerText`)
 )

@@ -20,64 +20,68 @@ import './views/products/products.ts'
 import './views/products/products.scss'
 import './views/products/products.html'
 
-interface MainTemplateControllerScope extends angular.IScope {
+interface IMainTemplateControllerScope extends angular.IScope {
     text: string;
 }
-(() => {
-    'use strict'
-    angular.module('miniscule', [
-      'ui.router',
-      'miniscule.views.home',
-      'miniscule.views.products',
-      'miniscule.views.product-details',
-      'miniscule.components.main-header',
-      'miniscule.services.productsService'
-    ]).config([
-      `$locationProvider`,
-      `$stateProvider`,
-      `$urlRouterProvider`,
-      (
-        $locationProvider: angular.ILocationProvider,
-        $stateProvider: angular.ui.IStateProvider,
-        $urlRouterProvider: angular.ui.IUrlRouterProvider
-      ) => {
 
-        $locationProvider.html5Mode(true)
+angular.module(`miniscule`, [
+  `ui.router`,
+  `miniscule.views.home`,
+  `miniscule.views.products`,
+  `miniscule.views.product-details`,
+  `miniscule.components.main-header`,
+  `miniscule.services.productsService`
+]).config([
+  `$locationProvider`,
+  `$stateProvider`,
+  `$urlRouterProvider`,
+  (
+    $locationProvider: angular.ILocationProvider,
+    $stateProvider: angular.ui.IStateProvider,
+    $urlRouterProvider: angular.ui.IUrlRouterProvider
+  ) => {
 
-        // $urlRouterProvider.otherwise(() => '/home')
+  $locationProvider.html5Mode(true)
 
-        const defineState = (name: string, config: angular.ui.IState) => {
-          $stateProvider.state(name, config)
-        }
+  // $urlRouterProvider.otherwise(() => `/home`)
 
-        defineState('home', {
-          url: '/home',
-          // template: `<div>cool pants</div>`
-          templateUrl: `/source/views/home/home.html`
-          // templateUrl: 'source/views/home.html'
-          // templateUrl: 'home'
-        })
+  const defineState = (name: string, config: angular.ui.IState) => {
+    $stateProvider.state(name, config)
+  }
 
-        defineState('test', {
-          url: '/test',
-          template: '<div>test</div>'
-        })
+  defineState(`home`, {
+    url: `/home`,
+    // template: `<div>cool pants</div>`
+    templateUrl: `/source/views/home/home.html`
+    // templateUrl: `source/views/home.html`
+    // templateUrl: `home`
+  })
 
-        defineState('products', {
-          url: '/products',
-          templateUrl: '/source/views/products/products.html',
-          controller: 'productsController'
-        })
+  defineState(`test`, {
+    url: `/test`,
+    template: `<div>test</div>`
+  })
 
-        defineState('product-details', {
-          url: '/products/:productId',
-          templateUrl: '/source/views/product-details/product-details.html',
-          controller: 'productDetailsController'
-        })
+  defineState(`products`, {
+    url: `/products`,
+    templateUrl: `/source/views/products/products.html`,
+    controller: `productsController`
+  })
 
-        // states go here
-      }])
-      .controller('mainTemplateController', [`$scope`, ($scope: MainTemplateControllerScope) => {
-        $scope.text = 'test main template'
-      }])
-})()
+  defineState(`product-details`, {
+    url: `/products/:productId`,
+    templateUrl: `/source/views/product-details/product-details.html`,
+    controller: `productDetailsController`
+  })
+
+  // states go here
+}])
+.controller(
+  `mainTemplateController`,
+  [
+    `$scope`,
+    ($scope: IMainTemplateControllerScope) => {
+      $scope.text = `test main template`
+    }
+  ]
+)

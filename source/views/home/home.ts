@@ -2,13 +2,11 @@ import * as angular from 'angular'
 // import './home.scss'
 // import './home.html'
 
-interface HomeScope {
-    text: string;
+interface IHomeScope {
+  text: string;
 }
-(() => {
-    'use strict'
-
-    angular.module('miniscule.views.home', [])
-        .controller('homeController', ($scope: HomeScope) => {
-        })
-})()
+angular.module(`miniscule.views.home`, [])
+.controller(
+  // tslint:disable-next-line no-empty
+  `homeController`, ($scope: IHomeScope) => {}
+)
