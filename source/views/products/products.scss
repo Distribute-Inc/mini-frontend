@@ -1,0 +1,14 @@
+.products {
+    width: 1040px;
+    margin: auto;
+    margin-top: 40px;
+
+    .products-list {
+        .product-name {
+            &:hover {
+                color: #00b6d6;
+                cursor: pointer;
+            }
+        }
+    }
+}

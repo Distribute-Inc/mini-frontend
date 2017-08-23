@@ -1,0 +1,40 @@
+.main-header {
+    background-color: #f7f7f7;
+    height: 60px;
+    line-height: 60px;
+    width: 100%;
+
+    .inner {
+        box-sizing: border-box;
+        padding-left: 78px;
+        padding-right: 78px;
+        width: 1340px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+            display: inline-block;
+            background: url('../../images/logo@2x.png') no-repeat;
+            background-size: 43px 48px;
+            width: 43px;
+            height: 48px;
+        }
+
+        .navigation {
+            display: inline-block;
+
+            .main-header-tab {
+                color: #888;
+                font-weight: 400;
+                margin-left: 15px;
+
+                &:hover {
+                    color: #00b6d6;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+<div class="products" >
+    <div class="products-list" ng-repeat="product in products" >
+        <div class="product-name" ui-sref="product-details({productId: product.id})">{{product.name}}</div>
+    </div>
+</div>

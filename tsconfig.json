@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "awesomeTypescriptLoaderOptions": {
+      "useWebpackText": true
+    }
+  },
+  "exclude": [
+    "*.html"
+  ],
+  "files": [
+    "source/index.ts"
+  ]
+}
