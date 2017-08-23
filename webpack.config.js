@@ -116,7 +116,12 @@ module.exports = (() => {
   }
   config.devServer = {
     contentBase: `./src/public`,
-    stats: `minimal`
+    stats: `minimal`,
+    historyApiFallback: {
+      rewrites: [
+        {from: /^\/$/, to: `index.html`}
+      ]
+    }
   }
   return config
 })()
