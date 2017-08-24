@@ -4,7 +4,7 @@
     "jsx": "react",
     "allowJs": true,
     "sourceMap": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "module": "commonjs",
     "awesomeTypescriptLoaderOptions": {
       "useWebpackText": true
@@ -12,6 +12,7 @@
     "baseUrl": ".",
     "paths": {
       "*": [
+        "source/types/*",
         "node_modules/@types/*",
         "*"
       ]
