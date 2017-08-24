@@ -1,42 +1,42 @@
 const nps = require('nps-utils')
 
-// gulp task list
-/*
-[
-  // these seem problematic
-  "bower-install",
-  "tsd-install",
-  "npm-install",
-  "install",
-  // this has no meat
-  "test",
-  // this can't possibly do anything of value
-  "config",
-  "copy-js",
-
-  "compile-ts",
-  "compile-sass",
-  "clean",
-  "build-local",
-  "rebuild-local",
-  "compile-and-prepare",
-  "compile-and-prepare-other",
-  "prepare-bower-files",
-  "prepare-partial-templates",
-  "prepare-main-template",
-  "js-concat-only",
-  "copy-images",
-  "copy-fonts",
-  "copy-assets"
-]
-*/
-
 module.exports = {
   scripts: {
-    bundle: `webpack`,
-    scss: `node-sass source/styling.scss -o ./compiled`,
-    serve: `webpack-dev-server --inline --progress`,
-    build: nps.concurrent.nps(`bundle`, `scss`),
-    test: `echo "!"`
+    bundle: {
+      description: `bundle the uh, bundle`,
+      script: `webpack`
+    },
+    precommit: {
+      description: `do stuff before committing (use --no-verify to skip -- at your peril)`,
+      script: nps.concurrent.nps(`bundle`, `lint`)
+    },
+    serve: {
+      description: `serve up application locally`,
+      script: `webpack-dev-server --inline --progress`
+    },
+    build: {
+      description: `build all-the-things`,
+      // ostensibly this will contain more than one thing
+      script: nps.concurrent.nps(`bundle`)
+    },
+    test: {
+      description: `right now there are no tests, so be wary`,
+      script: `echo "let's remember to add tests"`
+    },
+    lint: {
+      description: `wish this was eslint, 'cause the rules here are loose`,
+      script: `tslint source/*/*.ts*`
+    },
+    dependencies: {
+      script: `nps dependencies.graph`,
+      description: `do stuff relative to dependencies`,
+      graph: {
+        description: `draw a dependency graph, or whatever`,
+        script: nps.series(
+          `madge source/index.ts --image dependency-graph.svg`,
+          `svgo dependency-graph.svg`
+        )
+      }
+    }
   }
 }
