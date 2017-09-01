@@ -4,6 +4,7 @@ const autoprefixer = require(`autoprefixer`)
 const HtmlWebpackPlugin = require(`html-webpack-plugin`)
 const CopyWebpackPlugin = require(`copy-webpack-plugin`)
 const ExtractTextPlugin = require(`extract-text-webpack-plugin`)
+const ngAnnotatePlugin = require('ng-annotate-webpack-plugin')
 
 const ENV = process.env.npm_lifecycle_events
 const isTest = ENV === `test` || ENV === `test-watch`
@@ -76,6 +77,9 @@ module.exports = (() => {
       ]
     },
     plugins: [
+      new ngAnnotatePlugin({
+        add: true
+      }),
       // Automatically load React instead of needing
       // `import React from 'react'` everywhere
       // new webpack.ProvidePlugin({

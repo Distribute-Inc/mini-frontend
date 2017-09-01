@@ -1,5 +1,6 @@
 import * as angular from 'angular'
 import {MainHeader} from './react-is-cool'
+const ngInject = (v) => v
 // import {react2angular} from 'react2angular'
 
 interface MainHeaderScope extends angular.IScope {
@@ -17,8 +18,9 @@ angular.module(`miniscule.components.main-header`, [])
 ))
 .controller(
   `mainHeaderController`,
-    ($scope: MainHeaderScope) => {
-      $scope.headerText = 'main header text'
-    }
+  function mainHeaderController($scope: MainHeaderScope) {
+    /*@ngInject*/
+    $scope.headerText = 'main header text'
+  }
   // react2angular(MainHeader, `headerText`)
 )
