@@ -1,6 +1,6 @@
 import * as angular from 'angular'
 import {MainHeader} from './react-is-cool'
-const ngInject = (v) => v
+// const ngInject = (v) => v
 // import {react2angular} from 'react2angular'
 
 interface MainHeaderScope extends angular.IScope {
