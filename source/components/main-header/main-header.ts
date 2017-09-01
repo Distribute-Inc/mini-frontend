@@ -17,11 +17,8 @@ angular.module(`miniscule.components.main-header`, [])
 ))
 .controller(
   `mainHeaderController`,
-  [
-    `$scope`,
     ($scope: MainHeaderScope) => {
       $scope.headerText = 'main header text'
     }
-  ]
   // react2angular(MainHeader, `headerText`)
 )
