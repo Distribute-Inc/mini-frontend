@@ -1,6 +1,9 @@
 import * as angular from 'angular'
-import {MainHeader} from './react-is-cool'
+// import {MainHeader} from './react-is-cool'
 // import {react2angular} from 'react2angular'
+
+import './main-header.html'
+import './main-header.scss'
 
 interface MainHeaderScope extends angular.IScope {
   headerText?: any
@@ -10,7 +13,7 @@ angular.module(`miniscule.components.main-header`, [])
 .directive(`mainHeader`, () => (
   {
     controller: `mainHeaderController`,
-    templateUrl: `/source/components/main-header/main-header.html`,
+    templateUrl: `main-header.html`,
     restrict: `E`,
     scope: {}
   }

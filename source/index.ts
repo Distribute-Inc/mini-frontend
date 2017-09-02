@@ -5,8 +5,6 @@ import 'angular-ui-router'
 import './services/productsService.ts'
 
 import './components/main-header/main-header.ts'
-import './components/main-header/main-header.scss'
-import './components/main-header/main-header.html'
 
 import './views/home/home.ts'
 import './views/home/home.scss'
@@ -51,10 +49,7 @@ angular.module(`miniscule`, [
 
   defineState(`home`, {
     url: `/home`,
-    // template: `<div>cool pants</div>`
-    templateUrl: `/source/views/home/home.html`
-    // templateUrl: `source/views/home.html`
-    // templateUrl: `home`
+    templateUrl: `home`
   })
 
   defineState(`test`, {

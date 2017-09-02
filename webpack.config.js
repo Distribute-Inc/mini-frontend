@@ -52,7 +52,7 @@ module.exports = (() => {
           exclude: [
             path.resolve(__dirname, 'source/public/index.html')
           ],
-          loader: `ngtemplate-loader?relativeTo=${__dirname}!html-loader`
+          loader: `ngtemplate-loader?relativeTo=[path]!html-loader`
         },
         {
           test: /\.(js|jsx)$/,
