@@ -7,21 +7,24 @@ interface MainHeaderScope extends angular.IScope {
 }
 
 angular.module(`miniscule.components.main-header`, [])
-.directive(`mainHeader`, () => (
-  {
-    controller: `mainHeaderController`,
-    templateUrl: `/source/components/main-header/main-header.html`,
-    restrict: `E`,
-    scope: {}
-  }
-))
+// .directive(`mainHeader`, () => (
+//   {
+//     controller: `mainHeaderController`,
+//     templateUrl: `/source/components/main-header/main-header.html`,
+//     restrict: `E`,
+//     scope: {}
+//   }
+// ))
 .controller(
   `mainHeaderController`,
-  // [
-  //   `$scope`,
-  //   ($scope: MainHeaderScope) => {
-  //     $scope.headerText = 'main header text'
-  //   }
-  // ]
-  react2angular(MainHeader, `headerText`)
+  [
+    `$scope`,
+    ($scope: MainHeaderScope) => {
+      $scope.headerText = 'main header text'
+    }
+  ]
+)
+.component(
+  `mainHeader`,
+  react2angular(MainHeader, [`headerText`])
 )
