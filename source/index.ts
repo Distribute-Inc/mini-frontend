@@ -8,6 +8,8 @@ import './components/main-header/main-header.ts'
 import './components/main-header/main-header.scss'
 import './components/main-header/main-header.html'
 
+import './components/hello-react'
+
 import './views/home/home.ts'
 import './views/home/home.scss'
 import './views/home/home.html'

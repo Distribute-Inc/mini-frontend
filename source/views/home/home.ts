@@ -4,9 +4,13 @@ import * as angular from 'angular'
 
 interface IHomeScope {
   text: string;
+  hello: string;
 }
-angular.module(`miniscule.views.home`, [])
+angular.module(`miniscule.views.home`, ['helloReact'])
 .controller(
   // tslint:disable-next-line no-empty
-  `homeController`, ($scope: IHomeScope) => {}
+  `homeController`, ($scope: IHomeScope) => {
+    debugger
+    // $scope.hello = 'hello'
+  }
 )
